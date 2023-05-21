@@ -92,7 +92,7 @@ def save_game_stats():
   game_stats['sessions'].append(game_stats_session)
   with open("game_stats.json", "w+") as outfile:
     json.dump(game_stats, outfile, indent=4, default=str)
-  playsound("resources/audio/beep_medium.wav")
+  playsound("../resources/audio/beep_medium.wav")
 
 
 if __name__ == "__main__":
@@ -118,15 +118,11 @@ if __name__ == "__main__":
   da = DataAnalysis(GAME_LENGTH_SECS)
   gd = GameDraw(screen, width, height)
   try:
-    # The following loop acquires data, computes band powers, and calculates neurofeedback metrics based on those
-    # band powers
     while True:
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           sys.exit()
         if event.type == pygame.KEYDOWN and event.key == pygame.K_r:
-          # mouse = pygame.mouse.get_pos()
-          # print(mouse)
           if GAME_STATE == GameStates.PAUSED:
             GAME_STATE = GameStates.RUNNING
             da.reset_analysis(GAME_LENGTH_SECS)
@@ -147,6 +143,7 @@ if __name__ == "__main__":
           save_game_stats()
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
           save_game_stats()
+          exit(0)
           break
 
       data = sr.pull_data()
