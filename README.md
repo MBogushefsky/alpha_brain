@@ -1,6 +1,8 @@
 # Alpha Brain
 A game that trains your brain to increase your alpha brainwaves called neurofeedback. Alpha brainwaves signify a relaxed focus.
 
+![image](./screenshot.png)
+
 ## Getting Started
 - Run `sh setup.sh` in terminal pointed to your project folder
 - Change the `MUSE_MAC_ADDRESS` to your current Muse's address in the `resources/.env` file
